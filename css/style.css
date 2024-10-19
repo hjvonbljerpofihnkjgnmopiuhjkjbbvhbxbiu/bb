@@ -15,6 +15,9 @@ body {
   color: #fff;
 }
 
+.search-bar {
+display: none;
+}
 .header {
   display: flex;
   justify-content: space-between;
