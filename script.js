@@ -32,13 +32,15 @@ function extractRelevantData(parsedData) {
 }
 
 function searchByMatricule(matricule, data) {
-    return data.find(person => person.matricule === matricule);
+    return data.find(person => person.matricule.trim() === matricule.trim());
 }
 
+// Fonction pour afficher uniquement le nom dans la barre de nom lors d'une recherche
 function namebar(person) {
     return `<p class="self-name">${person.nom}  <i class="fa-solid fa-user"></i> </p>`;
 }
 
+// Fonction pour afficher les informations d'une seule personne
 function displayPersonInfo(person) {
     return `
         <div class="person-info">
@@ -105,6 +107,7 @@ function displayPersonInfo(person) {
     `;
 }
 
+// Fonction pour afficher tous les matricules (sans affecter la barre de nom)
 function displayAllMatricules(relevantData) {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';  // Vider le div avant d'afficher les résultats
@@ -114,7 +117,8 @@ function displayAllMatricules(relevantData) {
 }
 
 // Fonction pour rechercher par matricule ou afficher tous si aucun matricule n'est saisi
-async function handleSearch(matricule) {
+async function handleSearch() {
+    const matricule = document.getElementById('matriculeInput').value.trim();
     const csvText = await getCsvData();
     const parsedData = parseCsv(csvText);
     const relevantData = extractRelevantData(parsedData);
@@ -138,22 +142,7 @@ async function handleSearch(matricule) {
     }
 }
 
-// Ajouter un événement pour le clic sur le bouton "Rechercher"
-document.getElementById('searchButton').addEventListener('click', function() {
-    const matricule = document.getElementById('matriculeInput').value.trim();
-    handleSearch(matricule);
-});
-
-// Ajouter un événement pour la pression de la touche Enter dans le champ de saisie
-document.getElementById('matriculeInput').addEventListener('keydown', function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();  // Empêche le comportement par défaut
-        const matricule = document.getElementById('matriculeInput').value.trim();
-        handleSearch(matricule);  // Appeler la fonction de recherche
-    }
-});
-
-// Charger les données et afficher le matricule depuis l'URL au chargement de la page
+// Charger les données et afficher les informations au chargement de la page si un matricule est présent dans l'URL
 window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const matricule = urlParams.get('matricule');
@@ -163,8 +152,19 @@ window.addEventListener('load', async () => {
     const relevantData = extractRelevantData(parsedData);
 
     if (matricule) {
-        handleSearch(matricule);  // Effectuer la recherche directement avec le matricule trouvé dans l'URL
+        handleSearch(matricule);  // Rechercher directement si un matricule est présent
     } else {
-        displayAllMatricules(relevantData);  // Affiche tous les résultats par défaut sans affecter la barre de nom
+        displayAllMatricules(relevantData);  // Affiche tous les résultats par défaut
+    }
+});
+
+// Ajouter un événement pour le clic sur le bouton "Rechercher"
+document.getElementById('searchButton').addEventListener('click', handleSearch);
+
+// Ajouter un événement pour la pression de la touche Enter dans le champ de saisie
+document.getElementById('matriculeInput').addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();  // Empêche le comportement par défaut
+        handleSearch();  // Appeler la fonction de recherche
     }
 });
