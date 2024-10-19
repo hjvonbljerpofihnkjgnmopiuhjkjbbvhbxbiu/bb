@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.card {
+  color: #fff;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background-color: #1f1f2e;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f2e;
+  border-radius: 8px;
+  margin: 1.5rem 1.5rem 3rem 6rem;
+}
+.header .search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 65vw;
+}
+.header .search-bar input, .header .search-bar #matriculeInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #27293d;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+}
+.header .search-bar input:focus, .header .search-bar #matriculeInput:focus {
+  outline: none;
+  box-shadow: 0 0 5px #f97300;
+}
+.header .search-bar .CsearchButton {
+  background-color: #f97300;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+}
+.header .search-bar .CsearchButton:hover {
+  background-color: #c65b00;
+}
+.header .name-bar {
+  background-color: #1f1f2e;
+  color: #f97300;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.header .name-bar .self-name {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #f97300;
+}
+
+.person-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.person-id-self-money-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.person-id-self-money-container .person-id {
+  flex: 1;
+  background-color: #27293d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #6d6d80;
+}
+.person-id-self-money-container .person-id .self-grade {
+  color: #f97300;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.person-id-self-money-container .person-id .self-mat {
+  font-size: 1.25rem;
+  color: #fff;
+}
+.person-id-self-money-container .self-money {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background-color: #1f1f2e;
+  width: auto;
+  height: 150px;
+  gap: 3rem;
+}
+.person-id-self-money-container .self-money .self-salary, .person-id-self-money-container .self-money .self-remains-to-pay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 3;
+  background-color: #27293d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-weight: 300;
+  width: 200px;
+  height: 100%;
+}
+.person-id-self-money-container .self-money .self-salary p, .person-id-self-money-container .self-money .self-remains-to-pay p {
+  margin: 0;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.person-id-self-money-container .self-money .self-salary i, .person-id-self-money-container .self-money .self-remains-to-pay i {
+  color: #1b882a;
+  font-size: 24px;
+  padding: 1rem 1rem 0 1rem;
+}
+.person-id-self-money-container .self-money .self-salary .amount-p, .person-id-self-money-container .self-money .self-remains-to-pay .amount-p {
+  color: whitesmoke;
+  font-size: 32px;
+  font-weight: 400;
+  padding: 1rem 1rem 0 1rem;
+}
+.person-id-self-money-container .self-money .self-salary {
+  color: whitesmoke;
+}
+
+.person-salary {
+  display: flex;
+  gap: 3rem;
+}
+.person-salary .self-total-ca, .person-salary .self-bills, .person-salary .self-amount-crafted, .person-salary .self-expense-report {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #27293d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-weight: 300;
+  width: 200px;
+  height: 100%;
+}
+.person-salary .self-total-ca p, .person-salary .self-bills p, .person-salary .self-amount-crafted p, .person-salary .self-expense-report p {
+  margin: 0;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.person-salary .self-total-ca i, .person-salary .self-bills i, .person-salary .self-amount-crafted i, .person-salary .self-expense-report i {
+  font-size: 24px;
+  padding: 1rem 1rem 0 1rem;
+}
+.person-salary .self-total-ca .amount-p, .person-salary .self-bills .amount-p, .person-salary .self-amount-crafted .amount-p, .person-salary .self-expense-report .amount-p {
+  color: whitesmoke;
+  font-size: 32px;
+  font-weight: 400;
+  padding: 1rem 1rem 0 1rem;
+}
+.person-salary .self-total-ca, .person-salary .self-bills {
+  color: #4be6fe;
+}
+.person-salary .self-amount-crafted {
+  color: #d16aff;
+}
+.person-salary .self-expense-report {
+  color: #ff6ba5;
+}
+
+.all-person-info {
+  background-color: #27293d;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 0 3rem 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.all-person-info .all-person-id {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.all-person-info .all-person-id .all-mat {
+  display: flex;
+  justify-content: flex-end;
+  width: 15%;
+  color: #4be6fe;
+}
+.all-person-info .all-person-id .all-name {
+  color: #f97300;
+  font-weight: 500;
+  font-size: 22px;
+}
+.all-person-info .all-person-id .all-grade {
+  width: 15%;
+  color: #6d6d80;
+  font-weight: 300;
+  font-size: 16px;
+}
+.all-person-info .all-person-salary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+}
+.all-person-info .all-person-salary .all-salary {
+  color: #f97300;
+  font-weight: 700;
+}
+.all-person-info .all-person-salary .all-total-ca {
+  color: #4be6fe;
+}
+.all-person-info .all-person-salary .all-bills {
+  color: #fff;
+}
+.all-person-info .all-person-salary .all-amount-crafted {
+  color: #d16aff;
+}
+.all-person-info .all-person-salary .all-expense-report {
+  color: #ff6ba5;
+}
+.all-person-info .all-person-salary .all-remains-to-pay {
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .person-id-self-money-container, .person-salary {
+    flex-direction: column;
+  }
+  .person-salary {
+    gap: 1rem;
+  }
+  .person-info, .all-person-info {
+    flex-direction: column;
+  }
+  .person-info .all-person-id, .person-info .all-person-salary, .all-person-info .all-person-id, .all-person-info .all-person-salary {
+    width: 100%;
+  }
+  .search-bar {
+    flex-direction: column;
+  }
+  .search-bar input {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
+#searchButton {
+  visibility: hidden;
+  position: absolute;
+}/*# sourceMappingURL=style.css.map */
